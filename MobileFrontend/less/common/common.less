@@ -1,0 +1,734 @@
+@import "mediawiki.mixins.less";
+@import "minerva.variables.less";
+@import "minerva.mixins.less";
+
+// Deprecated rules
+.stable {
+	// this makes sure mobile browsers don't zoom on inputs (minimum resulting
+	// font size has to be 16px)
+	// header font size is kept the same to make it consistent with the search input
+	input,
+	textarea,
+	.header,
+	.overlay-header {
+		font-size: round( 1em / @fontScalingFactor, 2 );
+	}
+
+	input.search {
+	  // reset font size set for search input in .header
+	  font-size: 1em;
+	}
+
+	.content {
+		p,
+		li,
+		dl {
+			line-height: 1.65;
+		}
+	}
+}
+
+.mw-mf-overlay,
+#content_wrapper {
+	.error {
+		color: #C85353;
+		background: #FAE1E1 !important;
+	}
+}
+
+.mw-mf-image-replacement {
+	font-style: italic;
+	color: #706E6E;
+	text-decoration: underline;
+	border: dotted 1px #CCC;
+	padding: 10px;
+	display: inline-block;
+}
+
+.inputs-box {
+	padding: 1px;
+	border: solid 1px #e1e1e1;
+	border-radius: 5px;
+	background: #fff;
+	margin: 0 0 .8em;
+	text-align: center;
+
+	input:not([type=submit]), img {
+		border: none;
+		border-top: solid 1px #e1e1e1;
+
+		&:first-child {
+			border-top: none;
+		}
+	}
+
+	input:not([type=submit]) {
+		-webkit-appearance: none;
+		border-radius: 0;
+		padding: .8em .5em;
+		margin: 0;
+		.box-sizing( border-box );
+	}
+}
+
+textarea {
+	padding: 5px 0 5px 5px;
+}
+
+input:not([type=submit]), textarea {
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 5px;
+}
+
+// For old style forms
+// Special:MovePage?target=San%20Francisco
+// Special:Import
+// Special:NewPages
+// Special:RecentChanges
+// Special:Prefixindex
+// Special:Contributions
+// Special:ChangePassword
+// Special:ChangeEmail
+// Special:Allpages
+.mw-input [type=submit],
+.mw-submit {
+	margin-top: 8px;
+	min-width: 80%;
+}
+
+a.external {
+	.background-image-svg( 'images/external-link-ltr-icon.svg', 'images/external-link-ltr-icon.png' );
+	background-repeat: no-repeat;
+	background-position: center right;
+	padding-right: 13px;
+}
+
+/* Galleries */
+/* FIXME: Doesn't support parameters in https://en.wikipedia.org/wiki/Help:Gallery_tag */
+/* See https://www.mediawiki.org/wiki/Help:Images#Rendering_a_gallery_of_images */
+ul.gallery {
+	li.gallerybox {
+		display: inline-block;
+
+		div.thumb {
+
+			img {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+
+		div.gallerytext {
+			overflow: hidden;
+			padding: 2px 4px;
+			word-wrap: break-word;
+		}
+	}
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+a {
+	text-decoration: none;
+	color: #002bb8;
+}
+
+a:visited {
+	color: #5a3696;
+}
+
+a:active {
+	color: #faa700;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.new,
+a.new:visited,
+a.new:hover {
+	color: @redBase;
+}
+
+img.thumbborder {
+	border: 1px solid #ccc;
+}
+
+
+/* Plainlinks - this can be used to switch
+ * off special external link styling */
+.plainlinks a {
+	background: none !important;
+	padding: 0 !important;
+}
+
+strong,
+b {
+	font-weight: bold;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+fieldset {
+	border: 1px solid @blueBase;
+	margin: 1em 0 1em 0;
+	padding: 0 1em 1em;
+	line-height: 1.5em;
+	display: block;
+}
+
+.hlist > ul, // FIXME: to support hlists on enwiki projects - this should be deprecated
+
+// Horizontal Lists
+//
+// Use hlist class when dealing with lists where items should be horizontal.
+//
+// Markup:
+// <ul class="hlist">
+// <li>item 1</li>
+// <li>item 2</li>
+// </ul>
+//
+// Styleguide 1.6.
+ul.hlist {
+	li {
+		display: inline-block;
+		margin-right: 8px;
+	}
+}
+
+// Code
+//
+// Use this solely for blocks of computer code.
+//
+// Markup:
+// <code>
+// body {
+//   color:red;
+// }
+// </code>
+//
+// Styleguide 1.4.
+code,
+// Preformatted text
+//
+// Use on text where whitespace is significant and the content should not be formatted.
+//
+// Markup:
+// <pre>
+// body {
+//   color:red;
+// }
+// </pre>
+//
+// Styleguide 1.5.
+pre {
+	padding: 0.2em 0.5em;
+	font-family: monospace;
+	border: solid 1px #CCC;
+}
+
+pre {
+	padding: 1em;
+}
+
+.content {
+	// Deal with long links (bug 60387)
+	word-wrap: break-word;
+
+	// Linker.php
+	.thumb {
+		.thumbinner {
+			margin: 5px auto;
+			max-width: 100%;
+
+			> div {
+				float: none !important;
+				width: auto !important;
+				clear: both !important;
+			}
+		}
+
+		.thumbcaption {
+			margin: 5px 10px 0;
+			text-align: center;
+			width: auto !important;
+		}
+
+		/* bug 20030 */
+		.noresize {
+			width: 100%;
+			overflow-x: auto;
+
+			img {
+				max-width: none !important;
+			}
+		}
+	}
+
+	// Prevent inline styles on images in wikitext
+	// Note we restrict to img's to avoid conflicts with VisualEditor shields
+	// See bug 62460
+	a > img {
+		// make sure that images in articles don't cause a horizontal scrollbar
+		// on small screens
+		max-width: 100% !important;
+		height: auto !important;
+	}
+
+	ul {
+		list-style: square inside;
+	}
+
+	ol {
+		list-style: decimal inside;
+	}
+
+	table {
+		margin: 1em 0;
+
+		/* following 4 rules are needed for scrolling */
+		overflow: auto; /* for browsers that don't support overflow-y */
+		overflow-y: hidden;
+		overflow-x: auto;
+		display: block;
+		width: 100% !important;
+
+		td,
+		th {
+			padding: 3px;
+			border: 1px @grayLight solid;
+		}
+
+		th {
+			font-weight: bold;
+			background-color: #f2f2f2;
+			text-align: center;
+		}
+
+		caption {
+			display: block;
+			text-align: left;
+		}
+	}
+
+	// Hide the image magnification icon normally displayed in image captions
+	div.magnify {
+		display: none;
+	}
+
+	// Generic class name needed
+	.return-link,
+	#mw-mf-last-modified {
+		display: block;
+		font-size: .9em;
+		margin-top: 1.5em;
+	}
+}
+
+// FIXME: Use generic rule for print stylesheets
+.printfooter,
+.jsonly {
+	display: none;
+}
+
+.client-js .jsonly {
+	display: block;
+}
+
+.position-fixed {
+	// use !important to override more specific rules (e.g. in OverlayNew.less)
+	position: fixed !important;
+}
+
+.animations .position-fixed {
+	// workaround for:
+	// http://code.google.com/p/chromium/issues/detail?id=20574
+	// (otherwise hidden drawer causes .buttonBar to render incorrectly)
+	.transform( translate3d(0,0,0) );
+}
+
+.no-position-fixed {
+	#notifications {
+		bottom: 0;
+	}
+
+	.position-fixed {
+		position: absolute !important;
+	}
+}
+
+.touch-events {
+	:focus {
+		outline: 0;
+	}
+}
+
+.nomobile {
+	display: none;
+}
+
+/*-- UBC CLF ADDITIONS -- */
+#ubc7-search {
+	background-color: #D7E0E7;
+	height: 90px;
+	text-align: center;
+	width: 100%;
+}
+#ubc7-search-box {
+	padding-top: 30px;
+}
+#ubc7-search-box form {
+	margin: 0 0 20px;
+}
+#ubc7-search-box .input-xlarge {
+	max-width: 200px!important;
+}
+#ubc7-search-box input {
+	font-size: 16px;
+}
+#ubc7-search-box input[type="text"] {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	display: inline-block;
+	margin-bottom: 0;
+	vertical-align: middle;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear .2s,box-shadow linear .2s;
+	-moz-transition: border linear .2s,box-shadow linear .2s;
+	-o-transition: border linear .2s,box-shadow linear .2s;
+	transition: border linear .2s,box-shadow linear .2s;
+	height: 20px;
+	padding: 4px 6px;
+	line-height: 20px;
+	color: #555;
+	vertical-align: middle;
+	width: 100%;
+	min-height: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#ubc7-search-box .btn {
+	background-color: #002145!important;
+	background-image: -ms-linear-gradient(top, #002145, #191938);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from( #002145),to( #191938));
+	background-image: -webkit-linear-gradient(top, #002145, #191938);
+	background-image: -o-linear-gradient(top, #002145, #191938);
+	background-image: linear-gradient(to bottom, #002145, #191938);
+	background-image: -moz-linear-gradient(top, #002145, #191938);
+	background-repeat: repeat-x;
+	border: 1px solid #191938;
+	border-color: rgba(25, 25, 56, 0.5);
+	border-color: #002145;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	color: #FFF;
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#002145', endColorstr='#191938', GradientType=0);
+	filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+	text-decoration: none;
+	text-shadow: none;
+	display: inline-block;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: center;
+	webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+}
+#ubc7-global-menu #ubc7-search input, #ubc7-global-menu #ubc7-search button, #ubc7-global-menu #ubc7-global-header a {
+	visibility: hidden;
+}
+#ubc7-global-menu.in #ubc7-search input, #ubc7-global-menu.in #ubc7-search button, #ubc7-global-menu.in #ubc7-global-header a {
+	visibility: visible!important;
+}
+#ubc7-global-header .row-fluid {
+	padding-top: 10px;
+	padding-bottom: 30px;
+	overflow: auto;
+}
+#ubc7-global-header .row-fluid .offset2:first-child {
+	margin-left: 0;
+}
+#ubc7-global-header .span8 {
+	width: 100%!important;
+}
+#ubc7-global-header ul {
+	list-style-type: none;
+	margin-left: 0;
+	padding: 0;
+}
+#ubc7-global-header li {
+	width: 48%;
+	border-bottom: 1px solid #D7E0E7;
+	display: block;
+	float: left;
+	height: 30px;
+	margin: 10px 1% 0 1%;
+	line-height: 24px;
+}
+#ubc7-global-header a {
+	color: #002145!important;
+	font-size: 12px;
+	text-decoration: none;
+}
+#ubc7-ql-apom span {
+	background-position: -1073px -300px;
+	display: block;
+	float: left;
+	height: 25px;
+	width: 25px;
+}
+#ubc7-ql-mobile span {
+		background-position: -1100px -300px;
+	display: block;
+	float: left;
+	height: 25px;
+	width: 25px;
+}
+.collapse.in {
+height: auto;
+}
+.collapse {
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	-webkit-transition: height .35s ease;
+	-moz-transition: height .35s ease;
+	-o-transition: height .35s ease;
+	transition: height .35s ease;
+}
+.header, #mw-mf-page-center {
+	margin-top: 0!important;
+	padding-top: 0!important;
+}
+/* #ubc7-global-menu {
+	display: none
+}*/
+.ubc-header-container {
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0 15px;
+	width: auto;
+}
+.ubc-header-container:before, .ubc-header-container:after {
+	display: table;
+	line-height: 0;
+	content: "";
+	}
+[class*="span"], .uneditable-input[class*="span"], .row-fluid [class*="span"] {
+	display: block;
+	float: none;
+	width: 100%;
+	margin-left: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+header [class*="span"] {
+	height: 95px;
+}
+header .span1, header .span2 {
+	display: none!important;
+}
+#ubc7-header {
+	border-top: 3px solid #002145;
+	background-color: #fff;
+	height: 95px;
+	width: auto;
+}
+
+#ubc7-logo a, #ubc7-apom a, #ubc7-wordmark a, #ubc7-global-utility button {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+#ubc7-logo a, #ubc7-apom a, #ubc7-wordmark a, #ubc7-global-utility button span, #ubc7-signature a, .ubc7-campus, .hide-text {
+	overflow: hidden;
+	text-indent: 200%;
+	white-space: nowrap;
+}
+#ubc7-global-utility {
+	right: 20px;
+	position: absolute;
+}
+#ubc7-logo a, #ubc7-apom a, #ubc7-wordmark a, #ubc7-global-utility button {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+#ubc7-logo, #ubc7-apom, #ubc7-wordmark {
+	height: 100%;
+}
+#ubc7-wordmark {
+	width: 70%!important;
+	background: 0;
+	float: left;
+	position: relative;
+
+}
+#ubc7-wordmark-block {
+	background-position: -2px -276px;
+}
+#ubc7-global-utility button {
+	display: block;
+	background: rgba(0, 0, 0, 0);
+	border: 0;
+	float: right;
+	height: 44px;
+	margin-right: 0;
+	padding: 0;
+	width: 45px;
+}
+#ubc7-apom a {
+	background-position: -73px -115px;
+	border-left: 1px solid #D7E0E7;
+	min-width: 160px;
+}
+#ubc7-global-utility button span {
+	background-image: url('images/ubc7-clf-sprite-blue-2x.png')!important;
+	background-size: 1500px!important;
+	background-position: -1229px -291px;
+	width: 45px;
+	height: 33px;
+	position: relative;
+	top: -6px;
+	background-color: #002145;
+	display: block;
+	overflow: hidden;
+	text-indent: 200%;
+	white-space: nowrap;
+}
+#ubc7-global-utility button span.opened {
+	background-color: #002145;
+	background-position: -1229px -291px;
+}
+#ubc7-unit {
+	background: #002145;
+}
+#ubc7-unit, #ubc7-unit .navbar, #ubc7-unit-menu, #ubc7-unit-alternate-navigation {
+	margin-bottom: 0;
+}
+#ubc7-unit {
+	box-shadow: inset 0 -10px 10px -10px #222;
+	-moz-box-shadow: inset 0 -10px 10px -10px #222;
+	-webkit-box-shadow: inset 0 -10px 10px -10px #222;
+	height: 50px;
+	overflow: hidden;
+	width: 100%;
+}
+.span12, .row-fluid .span12 {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#ubc7-unit-name {
+	margin-right: 55px;
+}
+#ubc7-unit-name {
+	margin-top: 16px;
+	font-size: 12px;
+}
+#ubc7-unit a {
+	font-size: 12px;
+}
+#ubc7-unit-name a {
+	display: block;
+	line-height: 20px;
+}
+#ubc7-unit-name a, #ubc7-unit-name a:hover {
+	color: #FFF!important;
+	text-decoration: none!important;
+	text-shadow: 1px 1px #222;
+}
+.ubc7-single-element a {
+	margin-top: 16px;
+}
+
+#ubc7-unit-faculty {
+	font-size: 11px;
+}
+
+#ubc7-unit-name a {
+	display: block;
+	line-height: 20px;
+}
+#ubc7-unit-identifier {
+	font-size: 18px;
+}
+#ubc7-unit-identifier {
+	font-size: 18px;
+	letter-spacing: 1px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#ubc7-unit-faculty {
+	display: none!important;
+}
+
+#ubc7-logo, #ubc7-apom a, #ubc7-wordmark-block, #ubc7-global-utility button span, #ubc7-global-utility-no-script, #ubc7-okanagan-campus, #ubc7-vancouver-campus, #ubc7-signature a, .ubc7-carousel-control, #ubc7-ql-apom span, #ubc7-ql-mobile span, .ubc7-arrow {
+	background-repeat: no-repeat;
+}
+
+#ubc7-global-menu, #ubc7-unit, #ubc7-global-footer, #ubc7-minimal-footer, #ubc7-footer-menu h3, #ubc7-footer-menu h4 {
+	font-family: Arial,Sans-Serif!important;
+}
+#ubc7-logo, #ubc7-apom a, #ubc7-wordmark-block, #ubc7-global-utility button span, #ubc7-global-utility-no-script, #ubc7-okanagan-campus, #ubc7-vancouver-campus, #ubc7-signature a, .ubc7-carousel-control, #ubc7-ql-apom span, #ubc7-ql-mobile span, .ubc7-arrow {
+    background-image: url('images/ubc7-clf-sprite-blue.png');
+    background-repeat: no-repeat;
+}
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: '3/2'), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+    #ubc7-logo, #ubc7-apom a, #ubc7-wordmark-block, #ubc7-global-utility button span, #ubc7-global-utility-no-script, #ubc7-okanagan-campus, #ubc7-vancouver-campus, #ubc7-signature a, .ubc7-carousel-control, #ubc7-ql-apom span, #ubc7-ql-mobile span, .ubc7-arrow {
+     	background-image: url('images/ubc7-clf-sprite-blue-2x.png')!important;
+    	background-size: 1500px!important;
+	}
+}
+@media only screen and (-moz-min-device-pixel-ratio: 1.5) and (max-width: 979px), only screen and (-o-min-device-pixel-ratio: '3/2') and (max-width: 979px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 979px), only screen and (min-device-pixel-ratio: 1.5) and (max-width: 979px) {
+    #ubc7-signature a {
+     	background-position: -2px -435px!important;
+    	background-size: 1400px!important;
+	}
+}
+@media only screen and (-moz-min-device-pixel-ratio: 1.5) and (max-width: 767px), only screen and (-o-min-device-pixel-ratio: '3/2') and (max-width: 767px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 767px), only screen and (min-device-pixel-ratio: 1.5) and (max-width: 767px) {
+    #ubc7-signature a {
+     	background-position: -2px -544px!important;
+    	background-size: 1500px!important;
+	}
+}
+.expand {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
+}
+.overlay .overlay-header-container.position-fixed {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+
+}
+.overlay {
+}
+.overlay .overlay-header .v-border:first-child {
+	border-right: none!important;
+}

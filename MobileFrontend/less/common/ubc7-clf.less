@@ -1,0 +1,394 @@
+/*-- UBC CLF ADDITIONS -- */
+#ubc7-search {
+    background-color: #D7E0E7;
+    height: 90px;
+    text-align: center;
+    width: 100%;
+}
+
+#ubc7-search-box {
+    padding-top: 30px;
+}
+
+#ubc7-search-box form {
+    margin: 0 0 20px;
+}
+
+#ubc7-search-box .input-xlarge {
+    max-width: 200px!important;
+}
+
+#ubc7-search-box input {
+    font-size: 16px;
+}
+
+#ubc7-search-box input[type="text"] {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear .2s,box-shadow linear .2s;
+    -moz-transition: border linear .2s,box-shadow linear .2s;
+    -o-transition: border linear .2s,box-shadow linear .2s;
+    transition: border linear .2s,box-shadow linear .2s;
+    height: 20px;
+    padding: 4px 6px;
+    line-height: 20px;
+    color: #555;
+    vertical-align: middle;
+    width: 100%;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#ubc7-search-box .btn {
+    background-color: #002145!important;
+    background-image: -ms-linear-gradient(top, #002145, #191938);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from( #002145),to( #191938));
+    background-image: -webkit-linear-gradient(top, #002145, #191938);
+    background-image: -o-linear-gradient(top, #002145, #191938);
+    background-image: linear-gradient(to bottom, #002145, #191938);
+    background-image: -moz-linear-gradient(top, #002145, #191938);
+    background-repeat: repeat-x;
+    border: 1px solid #191938;
+    border-color: rgba(25, 25, 56, 0.5);
+    border-color: #002145;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    color: #FFF;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#002145', endColorstr='#191938', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+    text-decoration: none;
+    text-shadow: none;
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: center;
+    webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#ubc7-global-menu #ubc7-search input, #ubc7-global-menu #ubc7-search button, #ubc7-global-menu #ubc7-global-header a {
+    visibility: hidden;
+}
+
+#ubc7-global-menu.in #ubc7-search input, #ubc7-global-menu.in #ubc7-search button, #ubc7-global-menu.in #ubc7-global-header a {
+    visibility: visible!important;
+}
+
+#ubc7-global-header .row-fluid {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    overflow: auto;
+}
+
+#ubc7-global-header .row-fluid .offset2:first-child {
+    margin-left: 0;
+}
+
+#ubc7-global-header .span8 {
+    width: 100%!important;
+}
+
+#ubc7-global-header ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0;
+}
+
+#ubc7-global-header li {
+    width: 48%;
+    border-bottom: 1px solid #D7E0E7;
+    display: block;
+    float: left;
+    height: 30px;
+    margin: 10px 1% 0 1%;
+    line-height: 24px;
+}
+
+#ubc7-global-header a {
+    color: #002145!important;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+#ubc7-ql-apom span {
+    background-position: -1073px -300px;
+    display: block;
+    float: left;
+    height: 25px;
+    width: 25px;
+}
+
+#ubc7-ql-mobile span {
+    background-position: -1100px -300px;
+    display: block;
+    float: left;
+    height: 25px;
+    width: 25px;
+}
+
+.collapse.in {
+    height: auto;
+}
+
+.collapse {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height .35s ease;
+    -moz-transition: height .35s ease;
+    -o-transition: height .35s ease;
+    transition: height .35s ease;
+}
+
+.header, #mw-mf-page-center {
+    margin-top: 0!important;
+    padding-top: 0!important;
+}
+/* #ubc7-global-menu {
+	display: none
+}*/
+.ubc-header-container {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 15px;
+    width: auto;
+}
+
+.ubc-header-container:before, .ubc-header-container:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+[class*="span"], .uneditable-input[class*="span"], .row-fluid [class*="span"] {
+    display: block;
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+header [class*="span"] {
+    height: 95px;
+}
+
+header .span1, header .span2 {
+    display: none!important;
+}
+
+#ubc7-header {
+    border-top: 3px solid #002145;
+    background-color: #fff;
+    height: 95px;
+    width: auto;
+}
+
+#ubc7-logo a, #ubc7-apom a, #ubc7-wordmark a, #ubc7-global-utility button {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#ubc7-logo a, #ubc7-apom a, #ubc7-wordmark a, #ubc7-global-utility button span, #ubc7-signature a, .ubc7-campus, .hide-text {
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+}
+
+#ubc7-global-utility {
+    right: 20px;
+    position: absolute;
+}
+
+#ubc7-logo a, #ubc7-apom a, #ubc7-wordmark a, #ubc7-global-utility button {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#ubc7-logo, #ubc7-apom, #ubc7-wordmark {
+    height: 100%;
+}
+
+#ubc7-wordmark {
+    width: 70%!important;
+    background: 0;
+    float: left;
+    position: relative;
+}
+
+#ubc7-wordmark-block {
+    background-position: -2px -276px;
+}
+
+#ubc7-global-utility button {
+    display: block;
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+    float: right;
+    height: 44px;
+    margin-right: 0;
+    padding: 0;
+    width: 45px;
+}
+
+#ubc7-apom a {
+    background-position: -73px -115px;
+    border-left: 1px solid #D7E0E7;
+    min-width: 160px;
+}
+
+#ubc7-global-utility button span {
+    background-image: url('images/ubc7-clf-sprite-blue-2x.png')!important;
+    background-size: 1500px!important;
+    background-position: -1229px -291px;
+    width: 45px;
+    height: 33px;
+    position: relative;
+    top: -6px;
+    background-color: #002145;
+    display: block;
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+}
+
+#ubc7-global-utility button span.opened {
+    background-color: #002145;
+    background-position: -1229px -291px;
+}
+
+#ubc7-unit {
+    background: #1477A0;
+}
+
+#ubc7-unit, #ubc7-unit .navbar, #ubc7-unit-menu, #ubc7-unit-alternate-navigation {
+    margin-bottom: 0;
+}
+
+#ubc7-unit {
+    box-shadow: inset 0 -10px 10px -10px #222;
+    -moz-box-shadow: inset 0 -10px 10px -10px #222;
+    -webkit-box-shadow: inset 0 -10px 10px -10px #222;
+    height: 50px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.span12, .row-fluid .span12 {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#ubc7-unit-name {
+    margin-right: 55px;
+}
+
+#ubc7-unit-name {
+    margin-top: 16px;
+    font-size: 12px;
+}
+
+#ubc7-unit a {
+    font-size: 12px;
+}
+
+#ubc7-unit-name a {
+    display: block;
+    line-height: 20px;
+}
+
+#ubc7-unit-name a, #ubc7-unit-name a:hover {
+    color: #FFF!important;
+    text-decoration: none!important;
+    text-shadow: 1px 1px #222;
+}
+
+.ubc7-single-element a {
+    margin-top: 16px;
+}
+
+#ubc7-unit-faculty {
+    font-size: 11px;
+}
+
+#ubc7-unit-name a {
+    display: block;
+    line-height: 20px;
+}
+
+#ubc7-unit-identifier {
+    font-size: 18px;
+}
+
+#ubc7-unit-identifier {
+    font-size: 18px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#ubc7-unit-faculty {
+    display: none!important;
+}
+
+#ubc7-logo, #ubc7-apom a, #ubc7-wordmark-block, #ubc7-global-utility button span, #ubc7-global-utility-no-script, #ubc7-okanagan-campus, #ubc7-vancouver-campus, #ubc7-signature a, .ubc7-carousel-control, #ubc7-ql-apom span, #ubc7-ql-mobile span, .ubc7-arrow {
+    background-repeat: no-repeat;
+}
+
+#ubc7-global-menu, #ubc7-unit, #ubc7-global-footer, #ubc7-minimal-footer, #ubc7-footer-menu h3, #ubc7-footer-menu h4 {
+    font-family: Arial,Sans-Serif!important;
+}
+
+#ubc7-logo, #ubc7-apom a, #ubc7-wordmark-block, #ubc7-global-utility button span, #ubc7-global-utility-no-script, #ubc7-okanagan-campus, #ubc7-vancouver-campus, #ubc7-signature a, .ubc7-carousel-control, #ubc7-ql-apom span, #ubc7-ql-mobile span, .ubc7-arrow {
+    background-image: url('images/ubc7-clf-sprite-blue.png');
+    background-repeat: no-repeat;
+}
+
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: '3/2'), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+    #ubc7-logo, #ubc7-apom a, #ubc7-wordmark-block, #ubc7-global-utility button span, #ubc7-global-utility-no-script, #ubc7-okanagan-campus, #ubc7-vancouver-campus, #ubc7-signature a, .ubc7-carousel-control, #ubc7-ql-apom span, #ubc7-ql-mobile span, .ubc7-arrow {
+        background-image: url('images/ubc7-clf-sprite-blue-2x.png')!important;
+        background-size: 1500px!important;
+    }
+}
+
+@media only screen and (-moz-min-device-pixel-ratio: 1.5) and (max-width: 979px), only screen and (-o-min-device-pixel-ratio: '3/2') and (max-width: 979px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 979px), only screen and (min-device-pixel-ratio: 1.5) and (max-width: 979px) {
+    #ubc7-signature a {
+        background-position: -2px -435px!important;
+        background-size: 1400px!important;
+    }
+}
+
+@media only screen and (-moz-min-device-pixel-ratio: 1.5) and (max-width: 767px), only screen and (-o-min-device-pixel-ratio: '3/2') and (max-width: 767px), only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 767px), only screen and (min-device-pixel-ratio: 1.5) and (max-width: 767px) {
+    #ubc7-signature a {
+        background-position: -2px -544px!important;
+        background-size: 1500px!important;
+    }
+}
+
+.expand {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
